@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Brain - Brain Tumor Detection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #f8f9fa;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dr. Brain</a>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome to Dr. Brain</h1>
+        <p class="text-center lead">Upload your MRI scan to detect brain tumors and receive prevention tips.</p>
+
+        <section id="upload" class="mt-5">
+            <div class="card shadow p-4">
+                <h2 class="text-center">Upload Your MRI Image</h2>
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Choose MRI Image:</label>
+                        <input type="file" name="file" id="file" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Classify Tumor</button>
+                </form>
+            </div>
+        </section>
+
+        {% if result %}
+        <section id="result" class="mt-5">
+            <div class="alert alert-info text-center">
+                <h4>Prediction Result</h4>
+                <p>{{ result }}</p>
+            </div>
+        </section>
+        {% endif %}
+
+        <section id="prevention" class="mt-5">
+            <h2 class="text-center">Prevention Tips</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Healthy Diet</h5>
+                            <p class="card-text">Eat a balanced diet rich in fruits, vegetables, and whole grains to reduce the risk of tumors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Regular Exercise</h5>
+                            <p class="card-text">Engage in regular physical activity to boost your immune system and maintain a healthy weight.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Avoid Smoking</h5>
+                            <p class="card-text">Smoking is a significant risk factor. Avoid it to lower your chances of developing tumors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Dr. Brain. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
